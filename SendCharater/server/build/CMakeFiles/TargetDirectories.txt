@@ -1,0 +1,5 @@
+/Users/jyh/Desktop/QtProject/SendCharater/server/build/CMakeFiles/server.dir
+/Users/jyh/Desktop/QtProject/SendCharater/server/build/CMakeFiles/edit_cache.dir
+/Users/jyh/Desktop/QtProject/SendCharater/server/build/CMakeFiles/rebuild_cache.dir
+/Users/jyh/Desktop/QtProject/SendCharater/server/build/CMakeFiles/server_autogen_timestamp_deps.dir
+/Users/jyh/Desktop/QtProject/SendCharater/server/build/CMakeFiles/server_autogen.dir
