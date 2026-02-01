@@ -30,6 +30,7 @@ private:
     QSqlDatabase widget_sqlDatabase = QSqlDatabase::addDatabase("QSQLITE");//创建
     QString widget_Topic;
     inline void sqlInit();
+    static bool tableExists(QSqlDatabase &db, const QString &tableName);
 //发送消息函数
     void sendMessage(const QString Message);
 //订阅主题函数

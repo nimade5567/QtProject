@@ -13,10 +13,11 @@ Widget::Widget(QMqttClient *mqttClient, const QString Topic, QWidget *parent)
 {
     widget_mqttClient=mqttClient;
     widget_Topic=Topic;
-    sqlInit();
     subscribeTopic(widget_Topic);
+    sqlInit();
     connect(widget_mqttClient,&QMqttClient::messageReceived,[=](const QByteArray &message){
-        qDebug()<<(QString)message;
+        QString messageString = QString::fromUtf8(message);
+        qDebug()<<messageString;
     });
 }
 
@@ -28,6 +29,12 @@ inline void Widget::sqlInit(){
         QMessageBox::critical(this, "错误", "数据库打开失败");
         return;
     }
+    QSqlQuery query;
+    if(!query.exec("CREATE TABLE IF NOT EXISTS mqtt (id INTEGER PRIMARY KEY AUTOINCREMENT, sensorname varchar(255), datanum varchar(255))")){
+        QMessageBox::critical(this, "错误", "数据库创建失败");
+        return;
+    }
+    
 }
 //订阅主题函数
 inline void Widget::subscribeTopic(const QString Topic){
