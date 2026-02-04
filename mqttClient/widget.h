@@ -9,6 +9,10 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QByteArray>
+#include <QLineseries>
+#include <QChart>
+#include <QFont>
+#include <QValueAxis>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -25,10 +29,16 @@ public:
     ~Widget();
 
 
+private slots:
+    void on_checkBoxHit_checkStateChanged(const Qt::CheckState &arg1);
+
 private:
     QMqttClient *widget_mqttClient = nullptr;  // not owned, already connected by mainInterface
     QSqlDatabase widget_sqlDatabase = QSqlDatabase::addDatabase("QSQLITE");//创建
     QString widget_Topic;
+    QLineSeries *widget_lineSeries = new QLineSeries();
+    //表格绘制函数
+    // inline void tableDraw();
     inline void sqlInit();
     static bool tableExists(QSqlDatabase &db, const QString &tableName);
 //发送消息函数

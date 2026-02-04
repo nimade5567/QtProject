@@ -1,4 +1,4 @@
-QT       += core gui mqtt sql
+QT       += core gui mqtt sql charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
